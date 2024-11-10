@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000/api"; // Adjust for your backend URL
+// const API_BASE_URL = "http://localhost:5000/api"; // Adjust for your backend URL
+const API_BASE_URL = "https://xyranetserver.onrender.com/api";
 
 // Upload file function with parameter typing
 export const uploadFile = async (file: File): Promise<any> => {
