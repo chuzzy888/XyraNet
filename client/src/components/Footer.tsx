@@ -13,7 +13,7 @@ const Footer = () => {
             Luxand.cloud FaceAPI
           </h1> */}
           <img src={logo} alt="" className="h-8" />
-          <p className="text-[#b6b6af] py-[1rem]">© 2024 Luxand, Inc</p>
+          <p className="text-[#b6b6af] py-[1rem]">© 2024 Xyranet, Inc</p>
           <p className="text-[#b6b6af]">
             451 Hungerford Dr, Suite 300, Rockville, MD, 20850 USA
           </p>

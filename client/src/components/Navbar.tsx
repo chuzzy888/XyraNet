@@ -36,7 +36,7 @@ export default function Navbar() {
 
             <button
               onClick={toggleModal}
-              className=" text-lg text-black underline decoration-blue-500 decoration-2 underline-offset-4 hover:text-blue-600 hover:decoration-blue-700 transition duration-200"
+              className=" text-lg text-yellow-500 underline decoration-yellow-500 decoration-2 underline-offset-4 hover:text-blue-600 hover:decoration-blue-700 transition duration-200"
             >
               Request API
             </button>
