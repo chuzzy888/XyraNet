@@ -2,7 +2,7 @@ import React from "react";
 
 interface ComingSoonModalProps {
   isOpen: boolean;
-  onClose: () => void; // `onClose` is a function with no parameters that returns nothing
+  onClose: () => void;
 }
 
 const ComingSoonModal: React.FC<ComingSoonModalProps> = ({
