@@ -1,18 +1,22 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000/api";
-// const API_BASE_URL = "https://xyranetserver.onrender.com/api";
+// const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "https://xyranetserver.onrender.com/api";
 
 // Upload file function with parameter typing
 export const uploadFile = async (file: File): Promise<any> => {
   const formData = new FormData();
   formData.append("file", file);
 
-  return axios.post(`${API_BASE_URL}/upload`, formData, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  });
+  try {
+    axios.post(`${API_BASE_URL}/upload`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  } catch (error) {
+    console.log("18", error);
+  }
 };
 
 // Age detection function using RapidAPI with image URL typing

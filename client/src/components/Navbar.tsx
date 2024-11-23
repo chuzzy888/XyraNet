@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../assets/images/Frame 36 (1).png";
-import Hero from "../pages/Hero";
 import Layout from "./Layout";
 import { Link } from "react-router-dom";
+import { CgClose } from "react-icons/cg";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,7 +16,7 @@ export default function Navbar() {
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   return (
-    <div>
+    <div className="sticky top-0 z-50 bg-white shadow md:shadow-none">
       <Layout>
         <div className="flex justify-between items-center p-5  text-black">
           {/* Logo */}
@@ -28,20 +28,22 @@ export default function Navbar() {
 
           {/* Links and Button (Desktop View) */}
           <div className="hidden md:flex gap-5 items-center font-josefin text-lg">
-            <p className="cursor-pointer text-blue-500 hover:text-green-400">
-              Home
-            </p>
-            <p className="cursor-pointer hover:text-blue-500">About</p>
-            <p className="cursor-pointer hover:text-blue-500">Contact Us</p>
+            <Link to={"/"}>
+              <p className="cursor-pointer text-blue-500 hover:text-blue-400">
+                Home
+              </p>
+            </Link>
+            <p className="cursor-wait ">About</p>
+            <p className="cursor-wait">Contact Us</p>
 
             <button
               onClick={toggleModal}
-              className=" text-lg text-yellow-500 underline decoration-yellow-500 decoration-2 underline-offset-4 hover:text-blue-600 hover:decoration-blue-700 transition duration-200"
+              className=" text-lg text-blue-400 underline decoration-blue-500 decoration-2 underline-offset-4 hover:text-blue-600 hover:decoration-blue-700 transition duration-200"
             >
               Request API
             </button>
           </div>
-          <div className="md:flex gap-3 items-center  hidden">
+          <div className="lg:flex gap-3 items-center  hidden">
             <button className="border px-3 border-blue-300 border-2 p-1  font-josefin">
               sign up
             </button>
@@ -61,11 +63,8 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex flex-col items-center justify-center text-white font-josefin text-2xl gap-6 z-50">
-            <p
-              onClick={toggleMenu}
-              className="cursor-pointer hover:text-gray-300"
-            >
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-md flex flex-col items-center justify-center text-white font-josefin text-2xl gap-10 z-50">
+            <p onClick={toggleMenu} className="cursor-pointer text-blue-500">
               Home
             </p>
             <p
@@ -75,22 +74,16 @@ export default function Navbar() {
               About
             </p>
             <p
+              className="top-0 absolute right-2 p-5 cursor-pointer text-3xl text-red-800"
               onClick={toggleMenu}
-              className="cursor-pointer hover:text-blue-300 text-blue-500"
             >
-              Sign Up
-            </p>
-            <p
-              onClick={toggleMenu}
-              className="cursor-pointer hover:text-blue-300 text-blue-500"
-            >
-              Sign In
+              <CgClose />
             </p>
             <p
               onClick={toggleMenu}
               className="cursor-pointer hover:text-gray-300"
             >
-              Contact Us
+              Contact
             </p>
             <button
               onClick={() => {
@@ -99,7 +92,7 @@ export default function Navbar() {
               }}
               className=""
             >
-              Request API
+              API
             </button>
           </div>
         )}
@@ -108,7 +101,6 @@ export default function Navbar() {
         {isModalOpen && (
           <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
             <div className="bg-white p-8 rounded-lg max-w-md w-full relative mx-5 md:mx-0">
-              {/* <h2 className="text-xl font-bold mb-4">Request API Access</h2> */}
               <div className="flex justify-end ">
                 <img src={logo} alt="" className="h-5 " />
               </div>
@@ -166,9 +158,6 @@ export default function Navbar() {
             </div>
           </div>
         )}
-
-        {/* Hero Component */}
-        <Hero />
       </Layout>
     </div>
   );

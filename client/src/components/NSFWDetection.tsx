@@ -27,7 +27,7 @@ const NSFWDetection = () => {
 
     setLoading(true); // Start loading
     try {
-      const response = await detectNsfw(file, guardianEmail); // Pass guardianEmail to the API
+      const response = await detectNsfw(file, guardianEmail);
       setResult(response.data);
       setError("");
     } catch (err) {
